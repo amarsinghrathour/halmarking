@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUpcomingEventsTable extends Migration
+class CreateJobsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateUpcomingEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('upcoming_events', function (Blueprint $table) {
-            $table->collation = 'utf8mb4_bin';
+        Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->string('title',200);
-            $table->string('url',500)->unique();
-            $table->text('image');
-            $table->text('description')->nullable();
-            $table->dateTime('event_date');
-            $table->integer('sort_order')->default(1);
+            $table->string('job_no',100);
+            $table->string('product_type',100);
+            $table->decimal('purity',10,2);
+            $table->string('no_of_products',20);
+            $table->string('lot_size',20);
             $table->string('status',200)->default('ACTIVE');
             $table->string('created_by',200);
             $table->string('updated_by',200)->nullable();
@@ -36,6 +34,6 @@ class CreateUpcomingEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('upcoming_events');
+        Schema::dropIfExists('jobs');
     }
 }

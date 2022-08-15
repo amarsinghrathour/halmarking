@@ -16,14 +16,14 @@ class CreateAssaysTable extends Migration
         Schema::create('assays', function (Blueprint $table) {
             $table->id();
             $table->string('mix_numbers',200);
-            $table->string('job_no',100);
+            $table->string('job_no',150);
             $table->string('sample',100);
             $table->decimal('m1_weight',10,2);
             $table->decimal('m2_weight',10,2);
             $table->decimal('silver_weight',10,2);
             $table->decimal('cu_weight',10,2);
             $table->decimal('lead_weight',10,2);
-            $table->decimal('purity',10,2);
+           $table->string('purity',50);
             $table->string('status',200)->default('ACTIVE');
             $table->string('created_by',200);
             $table->string('updated_by',200)->nullable();

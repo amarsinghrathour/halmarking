@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\Web\HomeController::class, 'index'])->name('home1');
-
+//Route::get('/', [App\Http\Controllers\Web\HomeController::class, 'index'])->name('home1');
+Route::get('/','App\Http\Controllers\Admin\Auth\LoginController@showLoginForm')->name('admin.login');
 Route::get('/home', [App\Http\Controllers\Web\HomeController::class, 'index'])->name('home');
 ##################
 # Website Routes

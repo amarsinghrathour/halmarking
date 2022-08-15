@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use App\Models\Job;
+use Illuminate\Support\Facades\Log;
+use App\Services\Admin\JobService;
 class JobController extends Controller
 {
    public function __construct()
@@ -33,10 +36,10 @@ class JobController extends Controller
      */
     public function add()
     {
-        $unitList = Unit::where('status','ACTIVE')->orderBy('id','desc')->get();
+       
         return view('admin.job.add')
         ->with('title', __('Adding New  Job'))
-        ->with('unitList', $unitList)
+       
         ;
     } 
     /*
@@ -46,11 +49,9 @@ class JobController extends Controller
     {
         
         $jobData= Job::find($id);
-        $unitList = Unit::where('status','ACTIVE')->orderBy('id','desc')->get();
         return view('admin.job.edit')
         ->with('title', __('Edit Job'))
-        ->with('jobData', $jobData)
-        ->with('unitList', $unitList)
+        ->with('data', $jobData)
         ;
     } 
     
@@ -62,13 +63,12 @@ class JobController extends Controller
         Log::debug(__CLASS__."::".__FUNCTION__." called");
         
         $this->validate(request(), [
-            'name' => 'bail|required',
-            'description' => 'nullable',
-            'image' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:500000',
-            'cost_price' => 'bail|required|numeric|gt:0',
-            'mrp' => 'bail|required|numeric|gt:0',
-            'unit_id' => 'bail|required',
-            'hsn_code' => 'nullable',
+            'job_number' => 'bail|required|unique:jobs,job_no',
+            'product_type' => 'bail|required',
+            'product_purity' => 'bail|required',
+            'no_of_product' => 'bail|required',
+            'product_lot' => 'bail|required',
+            
         ]);
         
         JobService::save($request);
@@ -81,18 +81,17 @@ class JobController extends Controller
     public function update(Request $request) {
         
         Log::debug(__CLASS__.'::'.__FUNCTION__."called");
+           $id = htmlspecialchars(strip_tags($request->input('id')));
         $this->validate(request(), [
-            'name' => 'bail|required',
-            'description' => 'nullable',
-            'image' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:500000',
-            'cost_price' => 'bail|required|numeric|gt:0',
-            'mrp' => 'bail|required|numeric|gt:0',
-            'unit_id' => 'bail|required',
-            'hsn_code' => 'nullable',
+            'job_number' => 'bail|required|unique:jobs,job_no,' . $id,
+            'product_type' => 'bail|required',
+            'product_purity' => 'bail|required',
+            'no_of_product' => 'bail|required',
+            'product_lot' => 'bail|required',
             'id' => 'bail|required',
             
         ]);
-        $id = htmlspecialchars(strip_tags($request->input('id')));
+       
         JobService::update($request);
         return Redirect::route('admin.job.edit',['id'=>$id]);
         

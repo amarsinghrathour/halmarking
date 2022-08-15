@@ -30,11 +30,11 @@ class HomeController extends Controller
         $role_id = Auth::user()->role_id;$user_id = Auth::user()->id;
        
         
-          $enquiry =  Enquiry::where('status','!=','DELETED')->orderBy('id','desc')->limit(10)->get();
+         // $enquiry =  Enquiry::where('status','!=','DELETED')->orderBy('id','desc')->limit(10)->get();
             
             return view('admin.dashboard.admin')
             ->with('title', 'Home')
-            ->with('enquiryArray', $enquiry)
+           // ->with('enquiryArray', $enquiry)
            
             ;
         

@@ -15,9 +15,9 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
-            $table->string('job_no',100);
+            $table->string('job_no',150);
             $table->string('product_type',100);
-            $table->decimal('purity',10,2);
+            $table->string('purity',50);
             $table->string('no_of_products',20);
             $table->string('lot_size',20);
             $table->string('status',200)->default('ACTIVE');

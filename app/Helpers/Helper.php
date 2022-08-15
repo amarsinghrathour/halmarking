@@ -461,3 +461,38 @@ if(!function_exists('callUrl')){
         return $header ['content'];
     }
 }
+
+//get Product Type
+if (!function_exists('getProductType')) {
+
+    function getProductType() {
+        $type = ["chain"=>"Chain","ring"=>"Ring"];
+        
+        return $type;
+    }
+
+}
+//get Product Purity
+if (!function_exists('getProductPurity')) {
+
+    function getProductPurity() {
+        $type = ["24k"=>"24K","22k"=>"22K","18k"=>"18K","16k"=>"16K"];
+        
+        return $type;
+    }
+
+}
+
+//get Product Lot
+if (!function_exists('getProductLot')) {
+
+    function getProductLot() {
+        $type = ["11"=>"11","10"=>"10","9"=>"9","8"=>"8","7"=>"7","6"=>"6","5"=>"5","4"=>"4","3"=>"3","2"=>"2","1"=>"1"];
+        
+        return $type;
+    }
+
+}
+
+
+

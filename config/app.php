@@ -12,13 +12,13 @@ return [
     | any other location as required by the application or its packages.
     |
     */
-    'app_name' => 'Lmc Production',
-    'company_url' => 'https://misource.in/',
-    'company' => 'Wahcker Bros',
+    'app_name' => 'Assay Sheet',
+    'company_url' => 'https://assaysheet.xyz/',
+    'company' => 'Assay Sheet',
     'app_version' => '1.0',
     'app_short_name' => 'Ref',
     'admin_prefix' => 'admin',
-    'name' => env('APP_NAME', 'Lmc Production'),
+    'name' => env('APP_NAME', 'Assay Sheet'),
 
     /*
     |--------------------------------------------------------------------------

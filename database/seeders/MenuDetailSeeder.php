@@ -29,7 +29,7 @@ class MenuDetailSeeder extends Seeder
        
      //   Category
         $data[] = [
-            'name' => 'Category',
+            'name' => 'Jobs',
             'url' => '#',
             'menu_order' => 1,
             'parent_id' => 0,
@@ -43,11 +43,11 @@ class MenuDetailSeeder extends Seeder
      //  Add Category
         $data[] = [
             'name' => 'Add Category',
-            'url' => '/category/add',
+            'url' => '/jobs/add',
             'menu_order' => 0,
             'parent_id' => 2,
             'icon' => 'Add',
-            'title' => 'Add Category',
+            'title' => 'Add Job',
             
             'created_by' => 'Seeder',
             'status' => 'ACTIVE',
@@ -55,12 +55,12 @@ class MenuDetailSeeder extends Seeder
         
      //  Category List
         $data[] = [
-            'name' => 'Category List',
-            'url' => '/category',
+            'name' => 'Job List',
+            'url' => '/jobs',
             'menu_order' => 2,
             'parent_id' => 2,
             'icon' => 'list',
-            'title' => 'List Category',
+            'title' => 'List Job',
             
             'created_by' => 'Seeder',
             'status' => 'ACTIVE',

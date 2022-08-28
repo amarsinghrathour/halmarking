@@ -64,10 +64,13 @@ class JobController extends Controller
         
         $this->validate(request(), [
             'job_number' => 'bail|required|unique:jobs,job_no',
-            'product_type' => 'bail|required',
             'product_purity' => 'bail|required',
             'no_of_product' => 'bail|required',
             'product_lot' => 'bail|required',
+            'cg1_m1' => 'bail|required',
+            'cg1_m2' => 'bail|required',
+            'cg2_m1' => 'bail|required',
+            'cg2_m2' => 'bail|required',
             
         ]);
         
@@ -84,10 +87,14 @@ class JobController extends Controller
            $id = htmlspecialchars(strip_tags($request->input('id')));
         $this->validate(request(), [
             'job_number' => 'bail|required|unique:jobs,job_no,' . $id,
-            'product_type' => 'bail|required',
+           
             'product_purity' => 'bail|required',
             'no_of_product' => 'bail|required',
             'product_lot' => 'bail|required',
+            'cg1_m1' => 'bail|required',
+            'cg1_m2' => 'bail|required',
+            'cg2_m1' => 'bail|required',
+            'cg2_m2' => 'bail|required',
             'id' => 'bail|required',
             
         ]);

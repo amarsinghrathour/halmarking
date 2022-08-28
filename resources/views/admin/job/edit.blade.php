@@ -31,26 +31,11 @@
                                     @enderror
                                 </div>
                                     @php
-                                        $productType = getProductType();
+                                        
                                         $productPurity = getProductPurity();
                                         $productLot = getProductLot();
                                         @endphp                            
-                               <div class="col-md-6 form-group">
-                                    <label for="name">Product type <span class="text-danger">*</span></label>
-                                    <select class="form-control select2" name="product_type">
-                                        <option value="">Select</option>
-                                        
-                                        @foreach($productType as $key => $value)
-                                        <option value="{{$key}}" @if($data->product_type == $key) selected="" @endif>{{$value}}</option>
-                                        @endforeach
-                                        
-                                    </select>                                    
-                                    @error('product_type')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
-                                </div>
+                               
                                         
                                         <div class="col-md-6 form-group">
                                     <label for="name">Product Purity <span class="text-danger">*</span></label>
@@ -95,6 +80,47 @@
                                     </span>
                                     @enderror
                                 </div>
+                                        
+                                
+                                        <div class="col-md-6 form-group">
+                                            <label for="name">cg1 m1 <span class="text-danger">*</span></label>
+                                            <input type="number" step="any" name="cg1_m1" value="{{$data->cg1_m1}}" required="" class="form-control @error('cg1_m1') is-invalid @enderror" autocomplete='off' >
+                                            @error('cg1_m1')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>       
+
+                                        <div class="col-md-6 form-group">
+                                            <label for="name">cg1 m2 <span class="text-danger">*</span></label>
+                                            <input type="number" step="any" name="cg1_m2" value="{{$data->cg1_m2}}" required="" class="form-control @error('cg1_m2') is-invalid @enderror" autocomplete='off' >
+                                            @error('cg1_m2')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div> 
+
+                                        <div class="col-md-6 form-group">
+                                            <label for="name">cg2 m1 <span class="text-danger">*</span></label>
+                                            <input type="number" step="any" name="cg2_m1" value="{{$data->cg2_m1}}" required="" class="form-control @error('cg2_m1') is-invalid @enderror" autocomplete='off' >
+                                            @error('cg2_m1')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>       
+
+                                        <div class="col-md-6 form-group">
+                                            <label for="name">cg2 m2 <span class="text-danger">*</span></label>
+                                            <input type="number" step="any" name="cg2_m2" value="{{$data->cg2_m2}}" required="" class="form-control @error('cg2_m2') is-invalid @enderror" autocomplete='off' >
+                                            @error('cg2_m2')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>    
 
 
                             </div>

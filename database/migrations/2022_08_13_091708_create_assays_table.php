@@ -15,7 +15,7 @@ class CreateAssaysTable extends Migration
     {
         Schema::create('assays', function (Blueprint $table) {
             $table->id();
-            $table->string('mix_numbers',200);
+            
             $table->string('job_no',150);
             $table->string('sample',100);
             $table->decimal('m1_weight',10,2);

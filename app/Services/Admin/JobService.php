@@ -21,10 +21,13 @@ class JobService {
     public static function save($request) {
 
         $job_number = htmlspecialchars(strip_tags($request->input('job_number')));
-        $product_type = htmlspecialchars(strip_tags($request->input('product_type')));
         $product_purity = htmlspecialchars(strip_tags($request->input('product_purity')));
         $no_of_product = htmlspecialchars(strip_tags($request->input('no_of_product')));
         $product_lot = htmlspecialchars(strip_tags($request->input('product_lot')));
+        $cg1_m1 = htmlspecialchars(strip_tags($request->input('cg1_m1')));
+        $cg1_m2 = htmlspecialchars(strip_tags($request->input('cg1_m2')));
+        $cg2_m1 = htmlspecialchars(strip_tags($request->input('cg2_m1')));
+        $cg2_m2 = htmlspecialchars(strip_tags($request->input('cg2_m2')));
         
         try {
             DB::beginTransaction();
@@ -35,10 +38,13 @@ class JobService {
 
             $job = new Job;
             $job->job_no = $job_number;
-            $job->product_type = $product_type;
             $job->purity = $product_purity;
             $job->no_of_products = $no_of_product;
             $job->lot_size = $product_lot;
+            $job->cg1_m1 = $cg1_m1;
+            $job->cg1_m2 = $cg1_m2;
+             $job->cg2_m1 = $cg2_m1;
+            $job->cg2_m2 = $cg2_m2;
              
             $job->created_by = auth()->user()->email;
             
@@ -72,10 +78,13 @@ class JobService {
 
         $id = $request->input('id');
         $job_number = htmlspecialchars(strip_tags($request->input('job_number')));
-        $product_type = htmlspecialchars(strip_tags($request->input('product_type')));
         $product_purity = htmlspecialchars(strip_tags($request->input('product_purity')));
         $no_of_product = htmlspecialchars(strip_tags($request->input('no_of_product')));
         $product_lot = htmlspecialchars(strip_tags($request->input('product_lot')));
+         $cg1_m1 = htmlspecialchars(strip_tags($request->input('cg1_m1')));
+        $cg1_m2 = htmlspecialchars(strip_tags($request->input('cg1_m2')));
+        $cg2_m1 = htmlspecialchars(strip_tags($request->input('cg2_m1')));
+        $cg2_m2 = htmlspecialchars(strip_tags($request->input('cg2_m2')));
         try {
             DB::beginTransaction();
 
@@ -83,10 +92,14 @@ class JobService {
             $job = Job::find($id);
             
             $job->job_no = $job_number;
-            $job->product_type = $product_type;
             $job->purity = $product_purity;
             $job->no_of_products = $no_of_product;
             $job->lot_size = $product_lot;
+             $job->cg1_m1 = $cg1_m1;
+            $job->cg1_m2 = $cg1_m2;
+             $job->cg2_m1 = $cg2_m1;
+            $job->cg2_m2 = $cg2_m2;
+
             
             $job->updated_by = auth()->user()->email;
             if ($job->save()) {

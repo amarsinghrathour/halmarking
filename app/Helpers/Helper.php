@@ -476,7 +476,17 @@ if (!function_exists('getProductType')) {
 if (!function_exists('getProductPurity')) {
 
     function getProductPurity() {
-        $type = ["24k"=>"24K","22k"=>"22K","18k"=>"18K","16k"=>"16K"];
+        $type = ["24"=>"24K","23"=>"23K","22"=>"22K","20"=>"20K","18"=>"18K","14"=>"14K",];
+        
+        return $type;
+    }
+
+}
+
+if (!function_exists('getProductPurityValue')) {
+
+    function getProductPurityValue() {
+        $type = ["24"=>"995","23"=>"958","22"=>"916","20"=>"833","18"=>"750","14"=>"585",];
         
         return $type;
     }

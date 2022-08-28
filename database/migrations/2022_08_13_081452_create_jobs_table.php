@@ -16,10 +16,13 @@ class CreateJobsTable extends Migration
         Schema::create('jobs', function (Blueprint $table) {
             $table->id();
             $table->string('job_no',150);
-            $table->string('product_type',100);
             $table->string('purity',50);
             $table->string('no_of_products',20);
             $table->string('lot_size',20);
+            $table->decimal('cg1_m1',10,2);
+            $table->decimal('cg1_m2',10,2);
+            $table->decimal('cg2_m1',10,2);
+            $table->decimal('cg2_m2',10,2);
             $table->string('status',200)->default('ACTIVE');
             $table->string('created_by',200);
             $table->string('updated_by',200)->nullable();
